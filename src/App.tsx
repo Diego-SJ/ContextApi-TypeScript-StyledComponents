@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import BookContextProvider from './context/BookContext';
+import NavBar from './components/NavBar';
+import styled from 'styled-components';
+import BookList from './components/BookList';
+import BookForm from './components/BookForm';
+
+const AppStyle = styled.div`
+	background: #4c2a4c;
+	margin: 20px auto;
+	width: 90%;
+	max-width: 700px;
+	color: #eee;
+	padding-bottom: 20px;
+`;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<AppStyle>
+			<BookContextProvider>
+				<NavBar />
+				<BookForm />
+				<BookList />
+			</BookContextProvider>
+		</AppStyle>
+	);
 }
 
 export default App;
