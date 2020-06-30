@@ -30,10 +30,10 @@ const Button = styled.button`
 	border-radius: 4px;
 `;
 
-const NewBookForm = () => {
+const NewBookForm = (): JSX.Element => {
 	const { dispatch } = useContext(BookContext);
-	const [title, setTitle] = useState('');
-	const [author, setAuthor] = useState('');
+	const [title, setTitle] = useState<string>('');
+	const [author, setAuthor] = useState<string>('');
 
 	const handleSubmit = (e: any) => {
 		e.preventDefault();
@@ -48,14 +48,14 @@ const NewBookForm = () => {
 				type='text'
 				placeholder='book title'
 				value={title}
-				onChange={(e: any) => setTitle(e.target.value)}
+				onChange={(e) => setTitle(e.target.value)}
 				required
 			/>
 			<Input
 				type='text'
 				placeholder='author name'
 				value={author}
-				onChange={(e: any) => setAuthor(e.target.value)}
+				onChange={(e) => setAuthor(e.target.value)}
 				required
 			/>
 			<Button type='submit'>Add book</Button>
